@@ -1,4 +1,5 @@
 import Html exposing (Html)
+import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Effects exposing (Effects, Never)
 import Random exposing (int, Seed)
@@ -8,7 +9,8 @@ import Signal.Time as Time2
 import Signal exposing (Signal)
 import Time as Time
 import Array as Array
--- Time2.startTime, open question: how do I do this without polling for the time,
+
+-- Time2.startTime, open question: how do I use this without polling for the time,
 -- e.g. just have a signal that goes off once?
 startTimeSeed : Signal Action
 startTimeSeed = Signal.map ((\x -> Init x) << Random.initialSeed << round) (Time.every 100)
@@ -71,10 +73,20 @@ update action model =
         Nothing -> ({ model | seed = Just s }, Effects.none)
         Just _ -> (model, Effects.none)
 
+viewStyles : List (String, String)
+viewStyles = [
+  ("width", "100%")
+  ,("padding-top", "20%")
+  ,("padding-bottom", "20%")
+  ,("text-align", "center")
+  ,("vertical-align", "middle")
+  ,("font-size", "3em")
+  ,("height", "100%")]
+
 view : Signal.Address Action -> Model -> Html
 view address model = 
   let displayText = case model.name of
     Maybe.Nothing -> "触りなさい"
     Maybe.Just n -> n
-  in Html.div [onClick address [Html.text displayText]
+  in Html.div [onClick address Tap, style viewStyles] [Html.text displayText]
 
