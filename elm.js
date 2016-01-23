@@ -11238,15 +11238,12 @@ Elm.Main.make = function (_elm) {
    var _op = {};
    var Dimensions = function (a) {    return {ctor: "Dimensions",_0: a};};
    var Tap = {ctor: "Tap"};
-   var onTouchDown = function (address) {
-      return A3($Html$Events.on,"touchstart",$Json$Decode.value,function (_p0) {    return A2($Signal.message,address,Tap);});
-   };
    var onMouseDown = function (address) {
-      return A3($Html$Events.on,"mousedown",$Json$Decode.value,function (_p1) {    return A2($Signal.message,address,Tap);});
+      return A3($Html$Events.on,"mousedown",$Json$Decode.value,function (_p0) {    return A2($Signal.message,address,Tap);});
    };
    var view = F2(function (address,model) {
-      var displayText = function () {    var _p2 = model.name;if (_p2.ctor === "Nothing") {    return "タップしてください";} else {    return _p2._0;}}();
-      return A2($Html.div,_U.list([onTouchDown(address),onMouseDown(address)]),_U.list([$Html.text(displayText)]));
+      var displayText = function () {    var _p1 = model.name;if (_p1.ctor === "Nothing") {    return "タップしてください";} else {    return _p1._0;}}();
+      return A2($Html.div,_U.list([onMouseDown(address)]),_U.list([$Html.text(displayText)]));
    });
    var Init = function (a) {    return {ctor: "Init",_0: a};};
    var DoNothing = {ctor: "DoNothing"};
@@ -11254,32 +11251,32 @@ Elm.Main.make = function (_elm) {
    var Model = F3(function (a,b,c) {    return {name: a,seed: b,dimensions: c};});
    var names = $Array.fromList(_U.list(["タフェー","トゥーン","ヘス","ゴ","ユ","トウ","みなみ","シリン","ペック","セシリア","トィン","ヨーキン","ジョズエ","ジュ","ゆみ","マラティーナ","カイ","あき","カ","マイケル"]));
    var update = F2(function (action,model) {
-      var _p3 = action;
-      switch (_p3.ctor)
+      var _p2 = action;
+      switch (_p2.ctor)
       {case "DoNothing": return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
-         case "Dimensions": return {ctor: "_Tuple2",_0: _U.update(model,{dimensions: $Maybe.Just(_p3._0)}),_1: $Effects.none};
-         case "Tap": var _p4 = model.seed;
-           if (_p4.ctor === "Nothing") {
+         case "Dimensions": return {ctor: "_Tuple2",_0: _U.update(model,{dimensions: $Maybe.Just(_p2._0)}),_1: $Effects.none};
+         case "Tap": var _p3 = model.seed;
+           if (_p3.ctor === "Nothing") {
                  return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
               } else {
-                 var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p4._0);
+                 var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p3._0);
                  return {ctor: "_Tuple2"
                         ,_0: _U.update(model,{name: A2($Array.get,$Basics.fst(randomSeedPair),names),seed: $Maybe.Just($Basics.snd(randomSeedPair))})
                         ,_1: $Effects.none};
               }
-         default: var _p5 = model.seed;
-           if (_p5.ctor === "Nothing") {
-                 return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p3._0)}),_1: $Effects.none};
+         default: var _p4 = model.seed;
+           if (_p4.ctor === "Nothing") {
+                 return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p2._0)}),_1: $Effects.none};
               } else {
                  return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
               }}
    });
    var windowDimensions = A2($Signal.map,function (x) {    return Dimensions(x);},$Window.dimensions);
    var startTimeSeed = A2($Signal.map,
-   function (_p6) {
+   function (_p5) {
       return function (x) {
          return Init(x);
-      }($Random.initialSeed($Basics.round(_p6)));
+      }($Random.initialSeed($Basics.round(_p5)));
    },
    $Time.every(100));
    var app = $StartApp.start({init: init,view: view,update: update,inputs: _U.list([startTimeSeed,windowDimensions])});
@@ -11299,6 +11296,5 @@ Elm.Main.make = function (_elm) {
                              ,Dimensions: Dimensions
                              ,update: update
                              ,view: view
-                             ,onTouchDown: onTouchDown
                              ,onMouseDown: onMouseDown};
 };
