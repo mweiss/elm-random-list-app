@@ -1,6 +1,6 @@
 import Html exposing (Html, Attribute)
 import Html.Attributes exposing (style)
-import Html.Events exposing (on)
+import Html.Events exposing (onClick)
 import Effects exposing (Effects, Never)
 import Random exposing (int, Seed)
 import StartApp as StartApp
@@ -85,10 +85,6 @@ update action model =
 view : Signal.Address Action -> Model -> Html
 view address model = 
   let displayText = case model.name of
-        Maybe.Nothing -> "タップしてください"
+        Maybe.Nothing -> "タップして"
         Maybe.Just n -> n
-  in Html.div [onMouseDown address] [Html.text displayText]
-
-onMouseDown : Signal.Address Action -> Attribute
-onMouseDown address =
-    on "mousedown" Json.value (\_ -> Signal.message address Tap)
+  in Html.div [onClick address Tap] [Html.text displayText]

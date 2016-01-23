@@ -2,14 +2,14 @@
  
   <head>
     <title>中級１A名前の選択機</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script type="text/javascript" charset="utf8" src="elm.js"></script>
+    <script type='application/javascript' src='fastclick.js'></script>
 
     <style>
       body, div {
         width: 100%;
         height: 100%;
-        border-color:transparent;
-        outline: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
         -moz-user-select: none;
@@ -18,9 +18,9 @@
       }
 
       #app > div {
-        padding-top: 1em;
+        padding-top: 2em;
         text-align: center;
-        font-size: 3em;
+        font-size: 3.3em;
       }
     </style>
   </head>
@@ -30,6 +30,11 @@
   </body>
  
   <script type="text/javascript">
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+      }, false);
+    }
     var stamperDiv = document.getElementById('app');
     Elm.embed(Elm.Main, stamperDiv);
   </script>

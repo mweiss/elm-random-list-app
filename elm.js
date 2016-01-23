@@ -11225,7 +11225,6 @@ Elm.Main.make = function (_elm) {
    $Effects = Elm.Effects.make(_elm),
    $Html = Elm.Html.make(_elm),
    $Html$Events = Elm.Html.Events.make(_elm),
-   $Json$Decode = Elm.Json.Decode.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Random = Elm.Random.make(_elm),
@@ -11238,12 +11237,36 @@ Elm.Main.make = function (_elm) {
    var _op = {};
    var Dimensions = function (a) {    return {ctor: "Dimensions",_0: a};};
    var Tap = {ctor: "Tap"};
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 106481e... more updates
    var onMouseDown = function (address) {
       return A3($Html$Events.on,"mousedown",$Json$Decode.value,function (_p0) {    return A2($Signal.message,address,Tap);});
    };
    var view = F2(function (address,model) {
       var displayText = function () {    var _p1 = model.name;if (_p1.ctor === "Nothing") {    return "タップしてください";} else {    return _p1._0;}}();
       return A2($Html.div,_U.list([onMouseDown(address)]),_U.list([$Html.text(displayText)]));
+<<<<<<< HEAD
+=======
+   var onTouchDown = function (address) {
+      return A3($Html$Events.on,"touchstart",$Json$Decode.value,function (_p0) {    return A2($Signal.message,address,Tap);});
+   };
+   var onMouseDown = function (address) {
+      return A3($Html$Events.on,"mousedown",$Json$Decode.value,function (_p1) {    return A2($Signal.message,address,Tap);});
+   };
+   var view = F2(function (address,model) {
+      var displayText = function () {    var _p2 = model.name;if (_p2.ctor === "Nothing") {    return "タップしてください";} else {    return _p2._0;}}();
+      return A2($Html.div,_U.list([onTouchDown(address),onMouseDown(address)]),_U.list([$Html.text(displayText)]));
+>>>>>>> 5b70212... built elm.js
+=======
+>>>>>>> 106481e... more updates
+=======
+   var view = F2(function (address,model) {
+      var displayText = function () {    var _p0 = model.name;if (_p0.ctor === "Nothing") {    return "タップして";} else {    return _p0._0;}}();
+      return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),_U.list([$Html.text(displayText)]));
+>>>>>>> f045f93... added fast click for responsiveness
    });
    var Init = function (a) {    return {ctor: "Init",_0: a};};
    var DoNothing = {ctor: "DoNothing"};
@@ -11251,32 +11274,97 @@ Elm.Main.make = function (_elm) {
    var Model = F3(function (a,b,c) {    return {name: a,seed: b,dimensions: c};});
    var names = $Array.fromList(_U.list(["タフェー","トゥーン","ヘス","ゴ","ユ","トウ","みなみ","シリン","ペック","セシリア","トィン","ヨーキン","ジョズエ","ジュ","ゆみ","マラティーナ","カイ","あき","カ","マイケル"]));
    var update = F2(function (action,model) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 106481e... more updates
       var _p2 = action;
       switch (_p2.ctor)
+=======
+      var _p1 = action;
+      switch (_p1.ctor)
+>>>>>>> f045f93... added fast click for responsiveness
       {case "DoNothing": return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
-         case "Dimensions": return {ctor: "_Tuple2",_0: _U.update(model,{dimensions: $Maybe.Just(_p2._0)}),_1: $Effects.none};
-         case "Tap": var _p3 = model.seed;
-           if (_p3.ctor === "Nothing") {
+         case "Dimensions": return {ctor: "_Tuple2",_0: _U.update(model,{dimensions: $Maybe.Just(_p1._0)}),_1: $Effects.none};
+         case "Tap": var _p2 = model.seed;
+           if (_p2.ctor === "Nothing") {
                  return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
               } else {
+<<<<<<< HEAD
                  var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p3._0);
+<<<<<<< HEAD
+=======
+      var _p3 = action;
+      switch (_p3.ctor)
+      {case "DoNothing": return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
+         case "Dimensions": return {ctor: "_Tuple2",_0: _U.update(model,{dimensions: $Maybe.Just(_p3._0)}),_1: $Effects.none};
+         case "Tap": var _p4 = model.seed;
+           if (_p4.ctor === "Nothing") {
+                 return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
+              } else {
+                 var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p4._0);
+>>>>>>> 5b70212... built elm.js
+=======
+>>>>>>> 106481e... more updates
+=======
+                 var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p2._0);
+>>>>>>> f045f93... added fast click for responsiveness
                  return {ctor: "_Tuple2"
                         ,_0: _U.update(model,{name: A2($Array.get,$Basics.fst(randomSeedPair),names),seed: $Maybe.Just($Basics.snd(randomSeedPair))})
                         ,_1: $Effects.none};
               }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
          default: var _p4 = model.seed;
            if (_p4.ctor === "Nothing") {
                  return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p2._0)}),_1: $Effects.none};
+=======
+         default: var _p5 = model.seed;
+           if (_p5.ctor === "Nothing") {
+                 return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p3._0)}),_1: $Effects.none};
+>>>>>>> 5b70212... built elm.js
+=======
+         default: var _p4 = model.seed;
+           if (_p4.ctor === "Nothing") {
+                 return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p2._0)}),_1: $Effects.none};
+>>>>>>> 106481e... more updates
+=======
+         default: var _p3 = model.seed;
+           if (_p3.ctor === "Nothing") {
+                 return {ctor: "_Tuple2",_0: _U.update(model,{seed: $Maybe.Just(_p1._0)}),_1: $Effects.none};
+>>>>>>> f045f93... added fast click for responsiveness
               } else {
                  return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
               }}
    });
    var windowDimensions = A2($Signal.map,function (x) {    return Dimensions(x);},$Window.dimensions);
    var startTimeSeed = A2($Signal.map,
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 106481e... more updates
    function (_p5) {
       return function (x) {
          return Init(x);
       }($Random.initialSeed($Basics.round(_p5)));
+<<<<<<< HEAD
+=======
+   function (_p6) {
+      return function (x) {
+         return Init(x);
+      }($Random.initialSeed($Basics.round(_p6)));
+>>>>>>> 5b70212... built elm.js
+=======
+>>>>>>> 106481e... more updates
+=======
+   function (_p4) {
+      return function (x) {
+         return Init(x);
+      }($Random.initialSeed($Basics.round(_p4)));
+>>>>>>> f045f93... added fast click for responsiveness
    },
    $Time.every(100));
    var app = $StartApp.start({init: init,view: view,update: update,inputs: _U.list([startTimeSeed,windowDimensions])});
@@ -11295,6 +11383,17 @@ Elm.Main.make = function (_elm) {
                              ,Tap: Tap
                              ,Dimensions: Dimensions
                              ,update: update
+<<<<<<< HEAD
                              ,view: view
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                             ,onTouchDown: onTouchDown
+>>>>>>> 5b70212... built elm.js
+=======
+>>>>>>> 106481e... more updates
                              ,onMouseDown: onMouseDown};
+=======
+                             ,view: view};
+>>>>>>> f045f93... added fast click for responsiveness
 };
