@@ -87,11 +87,7 @@ view address model =
   let displayText = case model.name of
         Maybe.Nothing -> "タップしてください"
         Maybe.Just n -> n
-  in Html.div [onTouchDown address, onMouseDown address] [Html.text displayText]
-
-onTouchDown : Signal.Address Action -> Attribute
-onTouchDown address =
-    on "touchstart" Json.value (\_ -> Signal.message address Tap)
+  in Html.div [onMouseDown address] [Html.text displayText]
 
 onMouseDown : Signal.Address Action -> Attribute
 onMouseDown address =
