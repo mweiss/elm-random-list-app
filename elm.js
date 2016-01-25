@@ -11243,7 +11243,8 @@ Elm.Main.make = function (_elm) {
          if (_p0.ctor === "Nothing") {
                return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text("タップして")]))]);
             } else {
-               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._1)])),A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)]))]);
+               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(A2($Basics._op["++"],_p0._0._1,"test"))]))
+                              ,A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)]))]);
             }
       }();
       return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),children);

@@ -87,5 +87,5 @@ view : Signal.Address Action -> Model -> Html
 view address model = 
   let children = case model.nameAndImg of
         Maybe.Nothing -> [Html.span [] [Html.text "タップして"]]
-        Maybe.Just (n, img) -> [Html.span [] [Html.text img], Html.span [] [Html.text n]]
+        Maybe.Just (n, img) -> [Html.span [] [Html.text (img ++ "test")], Html.span [] [Html.text n]]
   in Html.div [onClick address Tap] children
