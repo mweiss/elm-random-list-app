@@ -1,5 +1,5 @@
 import Html exposing (Html, Attribute)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (style, src)
 import Html.Events exposing (onClick)
 import Effects exposing (Effects, Never)
 import Random exposing (int, Seed)
@@ -24,27 +24,28 @@ windowDimensions = Signal.map (\x -> Dimensions x) Window.dimensions
 app =
     StartApp.start { init = init, view = view, update = update, inputs = [startTimeSeed, windowDimensions] }
 
-names = Array.fromList [
-  "タフェー",
-  "トゥーン",
-  "ヘス",
-  "ゴ",
-  "ユ",
-  "トウ",
-  "みなみ",
-  "シリン",
-  "ペック",
-  "セシリア",
-  "トィン",
-  "ヨーキン",
-  "ジョズエ",
-  "ジュ",
-  "ゆみ",
-  "マラティーナ",
-  "カイ",
-  "あき",
-  "カ",
-  "マイケル"]
+names = Array.fromList 
+  [ ("マルティナ", "🐰")
+  , ("マイケル", "🐦")
+  , ("ジュ", "🍮")
+  , ("アキ", "🐹")
+  , ("セシリア", "😃")
+  , ("何（カ）", "😃")
+  , ("ミナミ", "🐰")
+  , ("シリン", "🐰")
+  , ("トゥエン", "😃")
+  , ("トゥーン", "😃")
+  , ("ヘス", "🐼")
+  , ("トウ", "😃")
+  , ("ヨーキン", "🐺")
+  , ("湯（ユ）", "🐤")
+  , ("呉（ゴ）", "🐰")
+  , ("ホスエ", "😼")
+  , ("カイ", "😃")
+  , ("ゆみ", "🐰")
+  , ("白（ペック）", "😃")
+  , ("タフィー", "🍬")
+  ]
 
 main =
     app.html
@@ -55,14 +56,14 @@ port tasks =
 
 -- MODEL
 type alias Model = 
-  { name : Maybe String
+  { nameAndImg : Maybe (String, String)
   , seed : Maybe Seed
   , dimensions : Maybe (Int, Int)
   }
 
 
 init : (Model, Effects Action)
-init = ({ name = Maybe.Nothing, dimensions = Maybe.Nothing, seed = Maybe.Nothing }, Effects.none)
+init = ({ nameAndImg = Maybe.Nothing, dimensions = Maybe.Nothing, seed = Maybe.Nothing }, Effects.none)
 
 type Action = DoNothing | Init Seed | Tap | Dimensions (Int, Int)
 
@@ -74,7 +75,7 @@ update action model =
     Tap -> case model.seed of
       Nothing -> (model, Effects.none)
       Just s -> let randomSeedPair = (Random.generate (int 0 ((Array.length names) - 1)) s)
-                in ( { model | name = (Array.get (fst randomSeedPair) names)
+                in ( { model | nameAndImg = (Array.get (fst randomSeedPair) names)
                              , seed = Just (snd randomSeedPair) }
                    , Effects.none)
     Init s -> 
@@ -84,7 +85,7 @@ update action model =
 
 view : Signal.Address Action -> Model -> Html
 view address model = 
-  let displayText = case model.name of
-        Maybe.Nothing -> "タップして"
-        Maybe.Just n -> n
-  in Html.div [onClick address Tap] [Html.text displayText]
+  let children = case model.nameAndImg of
+        Maybe.Nothing -> [Html.span [] [Html.text "タップして"]]
+        Maybe.Just (n, img) -> [Html.span [] [Html.text img], Html.span [] [Html.text n]]
+  in Html.div [onClick address Tap] children

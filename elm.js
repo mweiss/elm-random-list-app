@@ -11238,14 +11238,40 @@ Elm.Main.make = function (_elm) {
    var Dimensions = function (a) {    return {ctor: "Dimensions",_0: a};};
    var Tap = {ctor: "Tap"};
    var view = F2(function (address,model) {
-      var displayText = function () {    var _p0 = model.name;if (_p0.ctor === "Nothing") {    return "タップして";} else {    return _p0._0;}}();
-      return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),_U.list([$Html.text(displayText)]));
+      var children = function () {
+         var _p0 = model.nameAndImg;
+         if (_p0.ctor === "Nothing") {
+               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text("タップして")]))]);
+            } else {
+               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._1)])),A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)]))]);
+            }
+      }();
+      return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),children);
    });
    var Init = function (a) {    return {ctor: "Init",_0: a};};
    var DoNothing = {ctor: "DoNothing"};
-   var init = {ctor: "_Tuple2",_0: {name: $Maybe.Nothing,dimensions: $Maybe.Nothing,seed: $Maybe.Nothing},_1: $Effects.none};
-   var Model = F3(function (a,b,c) {    return {name: a,seed: b,dimensions: c};});
-   var names = $Array.fromList(_U.list(["タフェー","トゥーン","ヘス","ゴ","ユ","トウ","みなみ","シリン","ペック","セシリア","トィン","ヨーキン","ジョズエ","ジュ","ゆみ","マラティーナ","カイ","あき","カ","マイケル"]));
+   var init = {ctor: "_Tuple2",_0: {nameAndImg: $Maybe.Nothing,dimensions: $Maybe.Nothing,seed: $Maybe.Nothing},_1: $Effects.none};
+   var Model = F3(function (a,b,c) {    return {nameAndImg: a,seed: b,dimensions: c};});
+   var names = $Array.fromList(_U.list([{ctor: "_Tuple2",_0: "マルティナ",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "マイケル",_1: "🐦"}
+                                       ,{ctor: "_Tuple2",_0: "ジュ",_1: "🍮"}
+                                       ,{ctor: "_Tuple2",_0: "アキ",_1: "🐹"}
+                                       ,{ctor: "_Tuple2",_0: "セシリア",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "何（カ）",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "ミナミ",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "シリン",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "トゥエン",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "トゥーン",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "ヘス",_1: "🐼"}
+                                       ,{ctor: "_Tuple2",_0: "トウ",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "ヨーキン",_1: "🐺"}
+                                       ,{ctor: "_Tuple2",_0: "湯（ユ）",_1: "🐤"}
+                                       ,{ctor: "_Tuple2",_0: "呉（ゴ）",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "ホスエ",_1: "😼"}
+                                       ,{ctor: "_Tuple2",_0: "カイ",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "ゆみ",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "白（ペック）",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "タフィー",_1: "🍬"}]));
    var update = F2(function (action,model) {
       var _p1 = action;
       switch (_p1.ctor)
@@ -11257,7 +11283,7 @@ Elm.Main.make = function (_elm) {
               } else {
                  var randomSeedPair = A2($Random.generate,A2($Random.$int,0,$Array.length(names) - 1),_p2._0);
                  return {ctor: "_Tuple2"
-                        ,_0: _U.update(model,{name: A2($Array.get,$Basics.fst(randomSeedPair),names),seed: $Maybe.Just($Basics.snd(randomSeedPair))})
+                        ,_0: _U.update(model,{nameAndImg: A2($Array.get,$Basics.fst(randomSeedPair),names),seed: $Maybe.Just($Basics.snd(randomSeedPair))})
                         ,_1: $Effects.none};
               }
          default: var _p3 = model.seed;
