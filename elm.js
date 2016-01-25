@@ -11224,6 +11224,7 @@ Elm.Main.make = function (_elm) {
    $Debug = Elm.Debug.make(_elm),
    $Effects = Elm.Effects.make(_elm),
    $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
    $Html$Events = Elm.Html.Events.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
@@ -11243,7 +11244,8 @@ Elm.Main.make = function (_elm) {
          if (_p0.ctor === "Nothing") {
                return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text("タップして")]))]);
             } else {
-               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)])),A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._1)]))]);
+               return _U.list([A2($Html.img,_U.list([$Html$Attributes.src(A2($Basics._op["++"],"img/",_p0._0._1))]),_U.list([]))
+                              ,A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)]))]);
             }
       }();
       return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),children);
@@ -11252,26 +11254,26 @@ Elm.Main.make = function (_elm) {
    var DoNothing = {ctor: "DoNothing"};
    var init = {ctor: "_Tuple2",_0: {nameAndImg: $Maybe.Nothing,dimensions: $Maybe.Nothing,seed: $Maybe.Nothing},_1: $Effects.none};
    var Model = F3(function (a,b,c) {    return {nameAndImg: a,seed: b,dimensions: c};});
-   var names = $Array.fromList(_U.list([{ctor: "_Tuple2",_0: "マルティナ",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "マイケル",_1: "🐦"}
-                                       ,{ctor: "_Tuple2",_0: "ジュ",_1: "🍮"}
-                                       ,{ctor: "_Tuple2",_0: "アキ",_1: "🐹"}
-                                       ,{ctor: "_Tuple2",_0: "セシリア",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "カ",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "ミナミ",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "シリン",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "トゥエン",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "トゥーン",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "ヘス",_1: "🐼"}
-                                       ,{ctor: "_Tuple2",_0: "トウ",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "ヨーキン",_1: "🐺"}
-                                       ,{ctor: "_Tuple2",_0: "ユ",_1: "🐤"}
-                                       ,{ctor: "_Tuple2",_0: "ゴ",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "ホスエ",_1: "😼"}
-                                       ,{ctor: "_Tuple2",_0: "カイ",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "ゆみ",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "ペック",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "タフィー",_1: "🍬"}]));
+   var names = $Array.fromList(_U.list([{ctor: "_Tuple2",_0: "マルティナ",_1: "1f407.png"}
+                                       ,{ctor: "_Tuple2",_0: "マイケル",_1: "1f1fa-1f1f2.png"}
+                                       ,{ctor: "_Tuple2",_0: "ジュ",_1: "1f36e.png"}
+                                       ,{ctor: "_Tuple2",_0: "アキ",_1: "1f439.png"}
+                                       ,{ctor: "_Tuple2",_0: "セシリア",_1: "1f1f8-1f1ea.png"}
+                                       ,{ctor: "_Tuple2",_0: "カ",_1: "1f1ed-1f1f0.png"}
+                                       ,{ctor: "_Tuple2",_0: "ミナミ",_1: "1f430.png"}
+                                       ,{ctor: "_Tuple2",_0: "シリン",_1: "1f430.png"}
+                                       ,{ctor: "_Tuple2",_0: "トゥエン",_1: "1f1fb-1f1f3.png"}
+                                       ,{ctor: "_Tuple2",_0: "トゥーン",_1: "1f1f9-1f1ed.png"}
+                                       ,{ctor: "_Tuple2",_0: "ヘス",_1: "1f43c.png"}
+                                       ,{ctor: "_Tuple2",_0: "トウ",_1: "1f1f9-1f1fc.png"}
+                                       ,{ctor: "_Tuple2",_0: "ヨーキン",_1: "1f43a.png"}
+                                       ,{ctor: "_Tuple2",_0: "ユ",_1: "1f425.png"}
+                                       ,{ctor: "_Tuple2",_0: "ゴ",_1: "1f407.png"}
+                                       ,{ctor: "_Tuple2",_0: "ホスエ",_1: "1f431.png"}
+                                       ,{ctor: "_Tuple2",_0: "カイ",_1: "1f1f9-1f1fc.png"}
+                                       ,{ctor: "_Tuple2",_0: "ゆみ",_1: "1f407.png"}
+                                       ,{ctor: "_Tuple2",_0: "ペック",_1: "1f1f0-1f1f7.png"}
+                                       ,{ctor: "_Tuple2",_0: "タフィー",_1: "1f36c.png"}]));
    var update = F2(function (action,model) {
       var _p1 = action;
       switch (_p1.ctor)

@@ -25,26 +25,26 @@ app =
     StartApp.start { init = init, view = view, update = update, inputs = [startTimeSeed, windowDimensions] }
 
 names = Array.fromList 
-  [ ("マルティナ", "🐰")
-  , ("マイケル", "🐦")
-  , ("ジュ", "🍮")
-  , ("アキ", "🐹")
-  , ("セシリア", "😃")
-  , ("カ", "😃")
-  , ("ミナミ", "🐰")
-  , ("シリン", "🐰")
-  , ("トゥエン", "😃")
-  , ("トゥーン", "😃")
-  , ("ヘス", "🐼")
-  , ("トウ", "😃")
-  , ("ヨーキン", "🐺")
-  , ("ユ", "🐤")
-  , ("ゴ", "🐰")
-  , ("ホスエ", "😼")
-  , ("カイ", "😃")
-  , ("ゆみ", "🐰")
-  , ("ペック", "😃")
-  , ("タフィー", "🍬")
+  [ ("マルティナ", "1f407.png")
+  , ("マイケル", "1f1fa-1f1f2.png")
+  , ("ジュ", "1f36e.png")
+  , ("アキ", "1f439.png")
+  , ("セシリア", "1f1f8-1f1ea.png")
+  , ("カ", "1f1ed-1f1f0.png")
+  , ("ミナミ", "1f430.png")
+  , ("シリン", "1f430.png")
+  , ("トゥエン", "1f1fb-1f1f3.png")
+  , ("トゥーン", "1f1f9-1f1ed.png")
+  , ("ヘス", "1f43c.png")
+  , ("トウ", "1f1f9-1f1fc.png")
+  , ("ヨーキン", "1f43a.png")
+  , ("ユ", "1f425.png")
+  , ("ゴ", "1f407.png")
+  , ("ホスエ", "1f431.png")
+  , ("カイ", "1f1f9-1f1fc.png")
+  , ("ゆみ", "1f407.png")
+  , ("ペック", "1f1f0-1f1f7.png")
+  , ("タフィー", "1f36c.png")
   ]
 
 main =
@@ -87,5 +87,5 @@ view : Signal.Address Action -> Model -> Html
 view address model = 
   let children = case model.nameAndImg of
         Maybe.Nothing -> [Html.span [] [Html.text "タップして"]]
-        Maybe.Just (n, img) -> [Html.span [] [Html.text n], Html.span [] [Html.text (img)]]
+        Maybe.Just (n, img) -> [Html.img [src ("img/" ++ img)] [], Html.span [] [Html.text n]]
   in Html.div [onClick address Tap] children
