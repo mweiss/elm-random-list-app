@@ -11243,8 +11243,7 @@ Elm.Main.make = function (_elm) {
          if (_p0.ctor === "Nothing") {
                return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text("タップして")]))]);
             } else {
-               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(A2($Basics._op["++"],_p0._0._1,"test"))]))
-                              ,A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)]))]);
+               return _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._0)])),A2($Html.span,_U.list([]),_U.list([$Html.text(_p0._0._1)]))]);
             }
       }();
       return A2($Html.div,_U.list([A2($Html$Events.onClick,address,Tap)]),children);
@@ -11258,7 +11257,7 @@ Elm.Main.make = function (_elm) {
                                        ,{ctor: "_Tuple2",_0: "ジュ",_1: "🍮"}
                                        ,{ctor: "_Tuple2",_0: "アキ",_1: "🐹"}
                                        ,{ctor: "_Tuple2",_0: "セシリア",_1: "😃"}
-                                       ,{ctor: "_Tuple2",_0: "何（カ）",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "カ",_1: "😃"}
                                        ,{ctor: "_Tuple2",_0: "ミナミ",_1: "🐰"}
                                        ,{ctor: "_Tuple2",_0: "シリン",_1: "🐰"}
                                        ,{ctor: "_Tuple2",_0: "トゥエン",_1: "😃"}
@@ -11266,12 +11265,12 @@ Elm.Main.make = function (_elm) {
                                        ,{ctor: "_Tuple2",_0: "ヘス",_1: "🐼"}
                                        ,{ctor: "_Tuple2",_0: "トウ",_1: "😃"}
                                        ,{ctor: "_Tuple2",_0: "ヨーキン",_1: "🐺"}
-                                       ,{ctor: "_Tuple2",_0: "湯（ユ）",_1: "🐤"}
-                                       ,{ctor: "_Tuple2",_0: "呉（ゴ）",_1: "🐰"}
+                                       ,{ctor: "_Tuple2",_0: "ユ",_1: "🐤"}
+                                       ,{ctor: "_Tuple2",_0: "ゴ",_1: "🐰"}
                                        ,{ctor: "_Tuple2",_0: "ホスエ",_1: "😼"}
                                        ,{ctor: "_Tuple2",_0: "カイ",_1: "😃"}
                                        ,{ctor: "_Tuple2",_0: "ゆみ",_1: "🐰"}
-                                       ,{ctor: "_Tuple2",_0: "白（ペック）",_1: "😃"}
+                                       ,{ctor: "_Tuple2",_0: "ペック",_1: "😃"}
                                        ,{ctor: "_Tuple2",_0: "タフィー",_1: "🍬"}]));
    var update = F2(function (action,model) {
       var _p1 = action;

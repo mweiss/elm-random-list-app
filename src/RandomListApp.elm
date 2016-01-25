@@ -30,7 +30,7 @@ names = Array.fromList
   , ("ジュ", "🍮")
   , ("アキ", "🐹")
   , ("セシリア", "😃")
-  , ("何（カ）", "😃")
+  , ("カ", "😃")
   , ("ミナミ", "🐰")
   , ("シリン", "🐰")
   , ("トゥエン", "😃")
@@ -38,12 +38,12 @@ names = Array.fromList
   , ("ヘス", "🐼")
   , ("トウ", "😃")
   , ("ヨーキン", "🐺")
-  , ("湯（ユ）", "🐤")
-  , ("呉（ゴ）", "🐰")
+  , ("ユ", "🐤")
+  , ("ゴ", "🐰")
   , ("ホスエ", "😼")
   , ("カイ", "😃")
   , ("ゆみ", "🐰")
-  , ("白（ペック）", "😃")
+  , ("ペック", "😃")
   , ("タフィー", "🍬")
   ]
 
@@ -87,5 +87,5 @@ view : Signal.Address Action -> Model -> Html
 view address model = 
   let children = case model.nameAndImg of
         Maybe.Nothing -> [Html.span [] [Html.text "タップして"]]
-        Maybe.Just (n, img) -> [Html.span [] [Html.text (img ++ "test")], Html.span [] [Html.text n]]
+        Maybe.Just (n, img) -> [Html.span [] [Html.text n], Html.span [] [Html.text (img)]]
   in Html.div [onClick address Tap] children
