@@ -11272,7 +11272,7 @@ Elm.Main.make = function (_elm) {
                                        ,{ctor: "_Tuple2",_0: "ホスエ",_1: "1f431.png"}
                                        ,{ctor: "_Tuple2",_0: "カイ",_1: "1f1f9-1f1fc.png"}
                                        ,{ctor: "_Tuple2",_0: "ゆみ",_1: "1f407.png"}
-                                       ,{ctor: "_Tuple2",_0: "ペック",_1: "1f1f0-1f1f7.png"}
+                                       ,{ctor: "_Tuple2",_0: "ペク",_1: "1f1f0-1f1f7.png"}
                                        ,{ctor: "_Tuple2",_0: "タフィー",_1: "1f36c.png"}]));
    var update = F2(function (action,model) {
       var _p1 = action;

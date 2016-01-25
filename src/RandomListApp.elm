@@ -43,7 +43,7 @@ names = Array.fromList
   , ("ホスエ", "1f431.png")
   , ("カイ", "1f1f9-1f1fc.png")
   , ("ゆみ", "1f407.png")
-  , ("ペック", "1f1f0-1f1f7.png")
+  , ("ペク", "1f1f0-1f1f7.png")
   , ("タフィー", "1f36c.png")
   ]
 
